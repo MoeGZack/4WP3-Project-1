@@ -69,7 +69,7 @@
 
             <div class="test">
             <label for="membership_plan">Membership Type:</label>
-            <select id="membership_plan" name="membership_plan" placeholder=NULL>
+            <select id="membership_plan" name="membership_plan" placeholder=''>
                 <option value="Basic" {{#isBasic}}selected{{/isBasic}}>Basic</option>
                 <option value="Intermediate" {{#isIntermediate}}selected{{/isIntermediate}}>Intermediate</option>
                 <option value="Ultra" {{#isUltra}}selected{{/isUltra}}>Ultra</option>
@@ -78,7 +78,7 @@
 
             <div class="test">
             <label for="status">Membership Status:</label>
-            <select id="status" name="status" placeholder=NULL>
+            <select id="status" name="status" placeholder=''>
                 <option value="Active" {{#isActive}}selected{{/isActive}}>Active</option>
                 <option value="Hold" {{#isHold}}selected{{/isHold}}>Hold</option>
                 <option value="Cancelled" {{#isCancelled}}selected{{/isCancelled}}>Cancelled</option>
@@ -95,26 +95,49 @@
         
             <input type="hidden" name ="member_id" value="{{member.member_id}}">
             
-            
+            <button type="submit"  name="action" value="AddMember">Add Member</button>
+
             <button type="submit" name="action" value="checkin">Check In</button>
            
             <button type="submit" name="action" value="editmember">Edit Member</button>
             
 
             <button type="submit" name="action" value="deleteMember">Delete Member</button>
-          
-            <button type="submit"  name="action" value="cancelMember">Cancel Member</button>
-            
            
-            <button type="submit" name="action" value="upgradeMember">Upgrade Member</button>
-           
-         
-            <button type="submit"  name="action" value="payment">Payment</button>
          </form>
-       </div>
-        
-       
+       </div>   
     </section>
+
+
+    <section>
+    <h2>Member Table</h2>
+    <div class="FindAll">
+        <form  action="/FindAll" method="POST">
+    <table>
+     <tr>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>email</th>
+      <th>phone</th> 
+      <th>status</th> 
+    </tr>
+        {{ #members }}
+    <tr>
+      <td>{{ member_id }}</td>
+      <td>{{ first_name }}</td>
+      <td>{{ last_name }}</td>
+      <td>{{ email }}</td>
+      <td>{{ phone }}</td>
+      <td>{{ status }}</td>
+    </tr>
+    {{ /members }}
+    </table>
+         <button type="submit" name="action" value="FindAll">Find All Members</button>
+         </form>
+    </div>
+    </section>
+
  </div>   
 </body>
 </html>
