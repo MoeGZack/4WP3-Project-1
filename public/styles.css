@@ -38,12 +38,15 @@ input[type="text"] {
  
     border-radius: 4px; 
 }
-form {
+ .search form {
     display: flex;
     gap: 10px;
     width: 100%;
 }
-
+.member-info form {
+    width: 100%;
+    gap: 10px;
+}
 .search {
     align-items: center;
     gap: 10px;
@@ -56,6 +59,6 @@ form {
 }
 
 @media (max-width: 768px) {
-    .search {flex-direction: column; align-items: stretch;}
+    .search form {flex-direction: column; align-items: stretch;}
     .member-info {grid-template-columns: 1fr;}
 }
