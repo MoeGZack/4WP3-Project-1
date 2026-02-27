@@ -1,4 +1,5 @@
 const sqlite3 = require("sqlite3").verbose();
+const { get } = require("node:http");
 const sqlite = require("sqlite");
 
 let db;
@@ -33,10 +34,17 @@ async function getmember({first_name="", last_name="", phone=""}) {
     
 }
 
+async function getAllMembers()
+{
+  const results = await db.all("SELECT rowid, * FROM members");
+  return results;
+}
+
 module.exports = {
     
     dbconn,
-    getmember
+    getmember,
+    getAllMembers
 
     
 }

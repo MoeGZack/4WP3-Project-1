@@ -40,9 +40,15 @@ app.post("/searchmember", async (req, res) => {
         isHold: member.status === "Hold",
         isCancelled: member.status === "Cancelled"
     });
-
-
     });
+
+app.get("/findall", async (req, res) => {
+    const members = await Model.getAllMembers();
+    res.render("main", { 
+        message: "All Members Found",
+        members,
+    member:{} });
+});
 
 async function main(){
     await Model.dbconn();
