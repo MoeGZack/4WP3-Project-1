@@ -3,7 +3,12 @@
   background: #e0983a;
   --text-color: #fafafa;
 }
-
+img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
 .wrapper {
     max-width: 1000px;
     margin: 0 auto;
@@ -38,6 +43,13 @@ h1 {
 
 [type="text"] {
   flex: 1;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px; 
+}
+select {
+   flex: 1;
   padding: 12px;
   font-size: 16px;
   border: 1px solid #ccc;
