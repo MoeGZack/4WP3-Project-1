@@ -2,6 +2,7 @@
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
+    
 }
 
 section {
@@ -29,14 +30,15 @@ h1 {
     align-items: center;
 }
 
-input[type="text"] {
-  
-
+[type="text"] {
+  flex: 1;
   padding: 12px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px; 
 }
+
+
  .search form {
     display: flex;
     gap: 10px;
@@ -60,5 +62,6 @@ input[type="text"] {
 
 @media (max-width: 768px) {
     .search form {flex-direction: column; align-items: stretch;}
-    .member-info {grid-template-columns: 1fr;}
+    .member-info form {grid-template-columns: 1fr;}
+    
 }
