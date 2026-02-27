@@ -1,3 +1,9 @@
+:root {
+  --main-color: rgb(255, 162, 0);
+  background: #e0983a;
+  --text-color: #fafafa;
+}
+
 .wrapper {
     max-width: 1000px;
     margin: 0 auto;

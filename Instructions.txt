@@ -3,5 +3,12 @@ Go to root folder IN POWERSHELL
 1.run npm install
 
 2.run npm start
+
+3.Then go to localhost:3000 on web page!
+
+4. Please do not use NotUsed_index.html. I used that to build my webpage.
+   It is not being utilized currently.
+
+   
                             
 !!PLEASE LEAVE db file as is. It has all the tables needed!!

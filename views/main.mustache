@@ -40,7 +40,7 @@
         <form action="/memberResults" method="POST">
 
             <div class="test">
-            <label for="name">First Name:</label>
+            <label for="firstName">First Name:</label>
             <input type="text" id="firstName" name="firstName" value="{{member.firstName}}" >
             </div>
 
@@ -60,13 +60,21 @@
             </div>
 
             <div class="test">
-            <label for="Plan">Membership Type:</label>
-            <input type="text" id="plan" name="Plan" value="{{member.plan}}" >
+            <label for="plan">Membership Type:</label>
+            <select id="plan" name="plan" placeholder=NULL>
+                <option value="Basic" {{#isBasic}}selected{{/isBasic}}>Basic</option>
+                <option value="Intermediate" {{#isIntermediate}}selected{{/isIntermediate}}>Intermediate</option>
+                <option value="Ultra" {{#isUltra}}selected{{/isUltra}}>Ultra</option>
+            </select>
             </div>
 
             <div class="test">
-            <label for="membershipStatus">Membership Status:</label>
-            <input type="text" id="status" name="membershipStatus" value="{{member.status}}" >
+            <label for="status">Membership Status:</label>
+            <select id="status" name="status" placeholder=NULL>
+                <option value="Active" {{#isActive}}selected{{/isActive}}>Active</option>
+                <option value="Hold" {{#isHold}}selected{{/isHold}}>Hold</option>
+                <option value="Cancelled" {{#isCancelled}}selected{{/isCancelled}}>Cancelled</option>
+            </select>
             </div>
             </form>
       </div>
@@ -76,12 +84,10 @@
         <h2>Actions</h2>
        <div class="actions">
         <form  action="/action" method="POST">
-            <input type="hidden" name ="member_id" value="{{member.memberId}}
+
             
             <button type="submit" name="action" value="checkin">Check In</button>
            
-
-            
             <button type="submit" name="action" value="editmember">Edit Member</button>
             
 
