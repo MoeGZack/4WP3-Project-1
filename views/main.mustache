@@ -18,9 +18,15 @@
     <section>
         <h2>Search Members</h2>
         <div class="search">
-    <form action="/searchmember" method="POST">
-        
-        <input type="text" name="searchReq" placeholder="Search name or phone number">
+    <form action="/searchmember" method="POST" autocomplete="off">
+
+            <label for="first_name">First Name:</label>
+            <input type="text"  name="first_name"  >
+             <label for="last_name">Last Name:</label>
+            <input type="text"  name="last_name"  >
+            <label for="phone">Phone Number:</label>
+            <input type="text"  name="phone" >
+     
         <button type="submit">Search</button>
     </form>
         </div>
@@ -39,7 +45,7 @@
     <section>
         <h2>Member Info</h2>
         <div class="member-info">
-        <form action="/memberresults" method="POST">
+        <form action="/memberresults" method="POST" autocomplete="off">
 
             <div class="test">
             <label for="first_name">First Name:</label>
@@ -62,8 +68,8 @@
             </div>
 
             <div class="test">
-            <label for="plan">Membership Type:</label>
-            <select id="plan" name="plan" placeholder=NULL>
+            <label for="membership_plan">Membership Type:</label>
+            <select id="membership_plan" name="membership_plan" placeholder=NULL>
                 <option value="Basic" {{#isBasic}}selected{{/isBasic}}>Basic</option>
                 <option value="Intermediate" {{#isIntermediate}}selected{{/isIntermediate}}>Intermediate</option>
                 <option value="Ultra" {{#isUltra}}selected{{/isUltra}}>Ultra</option>

@@ -19,23 +19,23 @@ app.use(express.urlencoded({ extended: true }));
 
 app.post("/searchmember", async (req, res) => {
         
-    const SearchTerm = req.body.searchReq;
+    //const SearchTerm = req.body.searchReq;
 
-    const member = await Model.getmember(SearchTerm);
+    const member = await Model.getmember(req.body);
     
     if (!member) {
         return res.render ("main",{
             message: "No member found with the provided information.",
             member:{}
         });
-    } else {
-        console.log(member);
-    }
+    } 
+
     res.render("main", {
-        member:member,
-        isBasic: member.plan === "Basic",
-        isIntermediate: member.plan === "Intermediate",
-        isUltra: member.plan === "Ultra",
+        message: "Member found:",
+        member,
+        isBasic: member.membership_plan === "Basic",
+        isIntermediate: member.membership_plan === "Intermediate",
+        isUltra: member.membership_plan === "Ultra",
         isActive:member.status === "Active",
         isHold: member.status === "Hold",
         isCancelled: member.status === "Cancelled"

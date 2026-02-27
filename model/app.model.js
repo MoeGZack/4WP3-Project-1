@@ -15,15 +15,21 @@ async function dbconn() {
 }
 
 
-async function getmember(SearchTerm) {
+async function getmember({first_name="", last_name="", phone=""}) {
+    const first=  `%${first_name}%`;
+    const last= `%${last_name}%`;
+    const ph= `%${phone}%`;
 
-    const member = await db.get(
+    return await db.get(
         `SELECT * FROM members 
-         WHERE (first_name like '${SearchTerm}%' or last_name like '${SearchTerm}%' or phone like '${SearchTerm}%')`, 
-   
+         WHERE (?= '' OR first_name LIKE ?)
+         AND (?= '' OR last_name LIKE ?)
+         AND (?= '' OR phone LIKE ?)`,
+        first_name, first,
+        last_name, last,
+        phone, ph
+        
     );
-    console.log(member);
-    return member;
     
 }
 
