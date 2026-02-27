@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 async function main(){
-    //await Model.makeConnection();
+    await Model.dbconn();
 
     app.listen(port, hostname, () => {
         console.log(`Server running at http://${hostname}:${port}/`);

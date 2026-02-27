@@ -1,15 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gym Membership Tracking</title>
-  <link rel="stylesheet" href="/styles.css" />
- </head>
- <body>
-    <h1>Hello</h1>
+  <title>Employee Management Application</title>
+  <style>
+    td, th {
+      padding: 5px;
+    }
 
+    td, th, table {
+      border: 1px solid black;
+    }
 
+    table {
+      border-collapse: collapse;
+    }
+  </style>
+</head>
+<body>
+  <h1>Employee Management Application</h1>
 
+  <h2>Employee records</h2>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Salary</th>
+      <th>Delete</th> 
+      <th>Update</th> 
+    </tr>
+    {{ #employees }}
+    <tr>
+      <td>{{ rowid }}</td>
+      <td>{{ firstname }}</td>
+      <td>{{ lastname }}</td>
+      <td>{{ salary }}</td>
+      <td><a href="/delete/{{rowid}}">X</a></td>
+      <td><a href="/updateform/{{rowid}}">X</a></td>
+    </tr>
+    {{ /employees }}
+  </table>
+
+  <br />
+  <p><a href="/addform">Add employee</a></p>
+  {{#addemployee}}
+  <h2>Add Employee</h2>
+  <form action="/addemployee" method="post">
+    <label for="firstname">First Name</label>
+    <input type="text" name="firstname" /> <br /> <br />
+    <label for="lastname">Last Name</label>
+    <input type="text" name="lastname" /> <br />  <br />
+    <label for="salary">Salary</label>
+    <input type="text" name="salary" /> <br /> <br />
+    <input type="submit" />
+  </form>
+  {{/addemployee}}
+
+  {{#updateemployee}}
+  <h2>Update Employee</h2>
+  <form action="/update/{{formdata.rowid}}" method="post">
+    <label for="firstname">First Name</label>
+    <input type="text" name="firstname" value="{{ formdata.firstname }}" /> <br /> <br />
+    <label for="lastname">Last Name</label>
+    <input type="text" name="lastname" value="{{ formdata.lastname }}"/> <br />  <br />
+    <label for="salary">Salary</label>
+    <input type="text" name="salary" value="{{ formdata.salary }}"/> <br /> <br />
+    <input type="submit" />
+  </form>
+  {{/updateemployee}}
+  
 </body>
 </html>

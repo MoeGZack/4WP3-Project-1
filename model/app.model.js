@@ -5,9 +5,14 @@ let db;
 
 async function dbconn() {
     db = await sqlite.open({
+
         filename: "gym.db",
         driver: sqlite3.Database
+        
     });
+    
+
+    
     console.log("Connected to database");
 }
 
@@ -15,5 +20,7 @@ async function dbconn() {
 
 
 module.exports = {
-    dbconn
+    
+    dbconn,
+    
 }

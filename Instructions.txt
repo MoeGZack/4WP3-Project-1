@@ -1,0 +1,7 @@
+Go to root folder IN POWERSHELL
+
+1.run npm install
+
+2.run npm start
+                            
+!!PLEASE LEAVE db file as is. It has all the tables needed!!
