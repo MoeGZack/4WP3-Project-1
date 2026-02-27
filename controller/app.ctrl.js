@@ -8,7 +8,7 @@ const Model=require('../model/app.model.js');
 app.engine("mustache", mustacheExpress());
 app.set("view engine", "mustache");
 app.set("views", __dirname + "/../views");
-app.get("/app", async (req, res) => {
+app.get("/", async (req, res) => {
     res.render("main");
 });
 

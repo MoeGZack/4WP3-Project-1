@@ -1,16 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gym Membership Tracking</title>
-  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/styles.css">
  </head>
  <body>
-    <h1>Ameen Fitness</h1>
+ <div class="wrapper">
+    <header>
+     <h1>Ameen Fitness</h1>
+    </header>
+
+
+    <section>
+        <h2>Search Members</h2>
+        <div class="search">
+    <form action="/searchMember" method="POST">
+        
+        <input type="text"  name="searchTerm" placeholder="Search name or phone number" >
+        <button type="submit">Search</button>
+    </form>
+        </div>
+    </section>
+        <br> 
 
     
+    <section>
+        <div class="message">
+        <strong>Message:</strong> {{message}}
+        </div>
+    </section>   
+    
+    
 
+    <section>
+        <h2>Member Info</h2>
+        <div class="member-info">
+        <form action="/memberResults" method="POST">
 
+            <div class="test">
+            <label for="name">First Name:</label>
+            <input type="text" id="firstName" name="firstName" value="{{member.firstName}}" >
+            </div>
+
+            <div class="test">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" value="{{member.lastName}}" >
+            </div>
+
+            <div class="test">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" value="{{member.email}}" >
+            </div>
+
+            <div class="test">
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" value="{{member.phoneNumber}}" >
+            </div>
+
+            <div class="test">
+            <label for="Plan">Membership Type:</label>
+            <input type="text" id="plan" name="Plan" value="{{member.plan}}" >
+            </div>
+
+            <div class="test">
+            <label for="membershipStatus">Membership Status:</label>
+            <input type="text" id="status" name="membershipStatus" value="{{member.status}}" >
+            </div>
+            </form>
+      </div>
+    </section>
+
+    <section>
+        <h2>Actions</h2>
+       <div class="actions">
+        <form  action="/action" method="POST">
+            <input type="hidden" name ="member_id" value="{{member.memberId}}
+            
+            <button type="submit" name="action" value="checkin">Check In</button>
+           
+
+            
+            <button type="submit" name="action" value="editmember">Edit Member</button>
+            
+
+            <button type="submit" name="action" value="deleteMember">Delete Member</button>
+          
+            <button type="submit"  name="action" value="cancelMember">Cancel Member</button>
+            
+           
+            <button type="submit" name="action" value="upgradeMember">Upgrade Member</button>
+           
+         
+            <button type="submit"  name="action" value="payment">Payment</button>
+         </form>
+       </div>
+        
+       
+    </section>
+ </div>   
 </body>
 </html>
