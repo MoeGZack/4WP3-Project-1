@@ -40,11 +40,37 @@ async function getAllMembers()
   return results;
 }
 
+async function addMember(first_name, last_name, phone, membership_plan, status) {
+    await db.run(
+        `INSERT INTO members (first_name, last_name, phone, membership_plan, status)
+         VALUES (?, ?, ?, ?, ?)`,
+         first_name, last_name, phone, membership_plan, status
+    );
+}
+
+async function deleteMember(member_id) {
+    await db.run("DELETE FROM members WHERE member_id = ?", member_id);
+}
+
+async function updateMember(member_id, first_name, last_name, phone, membership_plan, status) {
+
+await db.run(
+    `UPDATE members 
+     SET first_name = ?, last_name = ?, phone = ?, membership_plan = ?, status = ?
+     WHERE member_id = ?`,
+     first_name, last_name, phone, membership_plan, status, member_id
+);
+}
+
+
 module.exports = {
     
     dbconn,
     getmember,
-    getAllMembers
+    getAllMembers,
+    deleteMember,
+    updateMember,
+    addMember
 
     
 }

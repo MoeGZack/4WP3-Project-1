@@ -42,12 +42,28 @@ app.post("/searchmember", async (req, res) => {
     });
     });
 
-app.get("/findall", async (req, res) => {
+app.post("/findall", async (req, res) => {
     const members = await Model.getAllMembers();
     res.render("main", { 
         message: "All Members Found",
         members,
     member:{} });
+});
+
+app.post("/action", async (req, res) => {
+    const { action, member_id } = req.body;
+
+    if (action === "deleteMember") {
+        await Model.deleteMember(member_id);
+        res.redirect("/");
+    }
+    if (action === "editmember") {
+        await Model.updateMember(member_id);
+        res.render("update", { member_id });
+    }
+    if (action === "AddMember") {
+        res.render("add");
+    }
 });
 
 async function main(){
