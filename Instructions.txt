@@ -7,7 +7,7 @@ Go to root folder IN POWERSHELL
 3.Then go to localhost:3000 on web page!
 
 4. Please do not use NotUsed_index.html. I used that to build my webpage.
-   It is not being utilized currently.
+   It is not being utilized currently. Left it there to highlight my troubleshooting for designing web page
 
    
                             
