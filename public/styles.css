@@ -46,17 +46,15 @@ input[type="text"] {
 .member-info form {
     width: 100%;
     gap: 10px;
+    display: grid;
+    grid-template-columns: 3, 1fr;
 }
 .search {
     align-items: center;
     gap: 10px;
 }
 
-.member-info {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
+
 
 @media (max-width: 768px) {
     .search form {flex-direction: column; align-items: stretch;}
