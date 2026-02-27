@@ -11,8 +11,51 @@ section {
     border-radius: 8px;
 
 }
+h2 {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h1 {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5em;
+}
+.message {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    margin-top: 10px;
+    align-items: center;
+}
 
+input[type="text"] {
+  flex: 1;
+  min-width: 0;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+ 
+    border-radius: 4px; 
+}
+form {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.search {
+    align-items: center;
+    gap: 10px;
+}
+
+.member-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
 
 @media (max-width: 768px) {
     .search {flex-direction: column; align-items: stretch;}
+    .member-info {grid-template-columns: 1fr;}
 }

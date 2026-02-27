@@ -14,17 +14,48 @@
 
 
     <section>
-        <div class="search">
         <h2>Search Members</h2>
+        <div class="search">
     <form action="/searchMember" method="POST">
-        <input type="text"  placeholder="Search name or phone number" >
-        <br>
+        
+        <input type="text"  name="searchTerm" placeholder="Search name or phone number" >
         <button type="submit">Search</button>
     </form>
         </div>
     </section>
         <br> 
-    <section>Member Info</section>
+
+    
+    <section>
+        <div class="message">
+        <strong>Message:</strong> No members Selected.
+    </section>   
+    
+    
+
+    <section>
+        <h2>Member Info</h2>
+        <div class="member-info">
+        <form action="/memberResults" method="POST">
+            <label for="name">First Name:</label>
+            <input type="text" id="firstName" name="firstName" value="" >
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" value="" >
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" value="" >
+            
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" value="" >
+            
+            <label for="Plan">Membership Type:</label>
+            <input type="text" id="plan" name="Plan" value="" >
+            
+            <label for="membershipStatus">Membership Status:</label>
+            <input type="text" id="status" name="membershipStatus" value="" >
+            
+    </section>
 
 
 
