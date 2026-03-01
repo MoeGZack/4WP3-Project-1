@@ -47,7 +47,7 @@ app.post("/findall", async (req, res) => {
     res.render("main", { 
         message: "All Members Found",
         members,
-    member:{} });
+        member:{} });
 });
 
 app.post("/action", async (req, res) => {
@@ -59,7 +59,7 @@ app.post("/action", async (req, res) => {
     }
     if (action === "editmember") {
         await Model.updateMember(member_id);
-        res.render("update", { member_id });
+        res.render("main", { member_id });
     }
     if (action === "AddMember") {
         res.render("add");
